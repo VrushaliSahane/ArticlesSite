@@ -1,0 +1,17 @@
+
+
+@{
+    //var item = Sitecore.Context.Database.GetItem("/sitecore/content/Home/Articles/SiteSetting/SiteSettingTemplate");
+    var item = Sitecore.Context.Database.GetItem("{8E3172E9-2B3D-4F34-AA14-E65F9AA61333}");
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<header>
+    <div class="container">
+        <div class="jumbotron text-white bg-primary">
+            <h1 class="display-3"> @Html.Sitecore().Field("Header-Title", item)</h1>
+            <p class="lead"><a href="https://jss.sitecore.com/" class="text-light">@Html.Sitecore().Field("Header-SubTitle", item)</p>
+        </div>
+    </div><!-- /.container -->
+</header>
+

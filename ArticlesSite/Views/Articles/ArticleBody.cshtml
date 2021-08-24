@@ -1,0 +1,33 @@
+@model ArticlesSite.Models.BlogCard
+
+@{
+    ViewBag.Title = "Articles";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var item1 = Sitecore.Context.Database.GetItem("{6173F423-669F-4334-A7ED-258F12F6E8DB}");
+}
+<main role="main" class="container blog-post-detail">
+    <div class="row">
+
+        @{ 
+            
+            var item = Sitecore.Context.Database.GetItem(Model.BlogURL);
+        }
+
+        <div class="blog-post-detail-card card col-lg-12">
+
+            <img class="card-img-top">@Html.Sitecore().Field("ArticleLargeImage", item)</img>
+            <div class="card-body bg-light">
+                <strong class="d-inline-block mb-2 text-success">@Html.Sitecore().Field("Title", item)</strong>
+                <h3 class="card-title">@Html.Sitecore().Field("Category", item)</h3> <!---Category-->
+                <div class="mb-1 text-muted">@Html.Sitecore().Field("PostedDate", item, new { format = "MMM-dd-YYYY" })</div>
+                <p> @Html.Sitecore().Field("LongDescription", item)</p>
+                <div class="blog-detail-tag-list">
+                    <span class="read-more-heading">Read more: </span>
+                    <a class="btn btn-info" href="#" role="button">Tag</a>
+                    <a class="btn btn-info" href="#" role="button">Super Extra Long Tag</a>
+                    <a class="btn btn-info" href="#" role="button">Extra Long Tag</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>

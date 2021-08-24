@@ -1,0 +1,54 @@
+﻿@using Sitecore.Mvc.Presentation
+@using Sitecore.Mvc.Extensions
+@using Sitecore.Data;
+
+@{
+    ViewBag.Title = "Search";
+Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<main role="main" class="container blog-posts">
+    <div class="main-search">
+        <div class="input-group">
+            <input type="text" class="form-control" name="name" id="searchInput" required>
+            <div class="input-group-append">
+                <button class="btn btn-dark" type="button" id="searchButton">
+                    Search
+                </button>
+            </div>
+        </div>
+    </div>
+</main>
+<div id="resultsItem">
+
+</div>
+
+
+
+
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+<script>
+		$(document).ready(function () {
+			$("#searchButton").click(function (e) {
+				// debugger;
+				e.preventDefault();
+				$.ajax({
+					type: "GET",
+					datatype: "JSON", url: "@Url.Action("DoSearch", "ArticleBody")",
+					contentType: "application/json",
+					data: {
+						searchText: $("#searchInput").val()
+					},
+					
+					error: function (result) {
+						alert('error');
+					}
+				});
+
+			});
+		});
+</script>
+
+

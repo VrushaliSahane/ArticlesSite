@@ -1,0 +1,47 @@
+﻿
+@using System.Text;
+@model IEnumerable<ArticlesSite.Models.BlogCard>
+@{
+    ViewBag.Title = "HOME";
+
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    StringBuilder str = new StringBuilder();
+}
+
+<script>
+    $(document).ready(function () {
+        document.getElementsById("Homediv").innerHTML = "";
+    });
+</script>
+<main role="main" class="container blog-posts">
+
+    <div class="row" id="Homediv">
+
+        @foreach (var item1 in Model)
+        {
+            var item = Sitecore.Context.Database.GetItem(item1.ID);
+            string s = item1.BlogURL;
+            StringBuilder str1 = new StringBuilder("http://articles.blog.com");
+            str = str.Append(s);
+            <div class="blog-post-card card col-lg-4 col-md-6">
+                @Html.Sitecore().Field("ArticleSmallImage", item, new { @class = "card-img-top" })
+                <div class="card-body bg-light">
+                    <strong class="d-inline-block mb-2 text-success">@Html.Sitecore().Field("Title", item)</strong>
+                    <h3 class="card-title">@Html.Sitecore().Field("Category", item)</h3>
+                    <div class="mb-1 text-muted">@Html.Sitecore().Field("PostedDate", item, new { format = "MMM-dd-YYYY" })</div>
+                    <p> @Html.Sitecore().Field("ShortDescription", item)</p>
+
+                    <a href=@str1.Append(str)  class="btn btn-warning btn-block">Readon</a>
+                </div>
+                @str1.Clear();
+                @str.Clear();
+            </div>
+        }
+    </div>
+</main>
+
+<script>
+    $(document).ready(function () {
+        document.getElementsById("Homediv").innerHTML = "";
+    });
+</script>
