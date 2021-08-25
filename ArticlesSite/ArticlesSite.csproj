@@ -159,6 +159,7 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Articles\HomesiteSettings.cshtml" />
     <Content Include="Views\Articles\Search.cshtml" />
+    <Content Include="Views\Articles\SearchCard.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

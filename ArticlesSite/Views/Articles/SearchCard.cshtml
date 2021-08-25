@@ -1,18 +1,14 @@
 ﻿
 @using System.Text;
+@using Sitecore.Data;
 @model IEnumerable<ArticlesSite.Models.BlogCard>
 @{
-    ViewBag.Title = "HOME";
-
- //   Layout = "~/Views/Shared/_Layout.cshtml";
     StringBuilder str = new StringBuilder();
+    Layout = null;
 }
 
-<script>
-    $(document).ready(function () {
-        document.getElementsById("Homediv").innerHTML = "";
-    });
-</script>
+<!DOCTYPE html>
+
 <main role="main" class="container blog-posts">
 
     <div class="row" id="Homediv">
@@ -31,7 +27,7 @@
                     <div class="mb-1 text-muted">@Html.Sitecore().Field("PostedDate", item, new { format = "MMM-dd-YYYY" })</div>
                     <p> @Html.Sitecore().Field("ShortDescription", item)</p>
 
-                    <a href=@str1.Append(str)  class="btn btn-warning btn-block">Readon</a>
+                    <a href=@item1.BlogURL class="btn btn-warning btn-block">Readon</a>
                 </div>
                 @str1.Clear();
                 @str.Clear();
@@ -39,9 +35,3 @@
         }
     </div>
 </main>
-
-<script>
-    $(document).ready(function () {
-        document.getElementsById("Homediv").innerHTML = "";
-    });
-</script>

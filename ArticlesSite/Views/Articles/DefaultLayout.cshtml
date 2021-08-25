@@ -1,17 +1,29 @@
 @using Sitecore.Mvc
 @using Sitecore.Mvc.Analytics.Extensions
 @{
-    Layout = "~/Views/Shared/_Layout.cshtml";
+  //  Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<head>
+
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="~/assets/css/bootstrap-themed.min.css">
+    <link rel="stylesheet" href="~/assets/css/blogsite.css">
+
+
+
+</head>
 <!DOCTYPE html>
 
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 
-    <body>
-         <div>
-            @Html.Sitecore().Placeholder("phMain")
-        </div>
-    </body>
+<body>
+    <div>
+        @Html.Sitecore().Placeholder("phMain")
+    </div>
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+</body>
 </html>
 
 
