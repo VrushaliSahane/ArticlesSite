@@ -160,7 +160,7 @@ namespace ArticlesSite.Controllers
 
                 }
 
-               return View("~/Views/Articles/SearchCard.cshtml", bcard);
+               return View("~/Views/Articles/HomesiteSettings.cshtml", bcard);
 
                // return new JsonResult { JsonRequestBehavior = JsonRequestBehavior.AllowGet, Data = bcard, };
             }
