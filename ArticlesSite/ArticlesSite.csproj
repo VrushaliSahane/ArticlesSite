@@ -132,6 +132,7 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\ArticleBodyController.cs" />
+    <Compile Include="Controllers\SearchController.cs" />
     <Compile Include="HttpRequestProcessor404.cs" />
     <Compile Include="Models\BlogCard.cs" />
     <Compile Include="Models\SearchModel.cs" />
@@ -159,6 +160,7 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Articles\HomesiteSettings.cshtml" />
     <Content Include="Views\Articles\Search.cshtml" />
+    <Content Include="Views\Search\SearchCards.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

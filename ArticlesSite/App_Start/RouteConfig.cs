@@ -12,15 +12,15 @@ namespace ArticlesSite.App_Start
 
             public static void RegisterRoutes(RouteCollection routes)
             {
-                routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
+
+            routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
             routes.MapRoute(
                       name: "SearchForm",
                       url: "ket-qua/",
-                      defaults: new { controller = "ArticleBody", action = "DoSearch" , id=UrlParameter.Optional}
-
-
+                      defaults: new { controller = "Search", action = "searchPredicate", id = UrlParameter.Optional }
 
                      );
-            } 
+
+        } 
     }
 }

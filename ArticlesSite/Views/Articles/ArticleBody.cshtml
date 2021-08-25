@@ -1,15 +1,21 @@
 @model ArticlesSite.Models.BlogCard
+@using Sitecore.Data.Items;
 
 @{
     ViewBag.Title = "Articles";
-  //  Layout = "~/Views/Shared/_Layout.cshtml";
-    var item1 = Sitecore.Context.Database.GetItem("{6173F423-669F-4334-A7ED-258F12F6E8DB}");
+    //  Layout = "~/Views/Shared/_Layout.cshtml";
+    var HomeButton = Sitecore.Context.Database.GetItem("{319231EA-9BD8-4EE8-A456-2D99D661B554}");
+
+    Item TagsFolder = Sitecore.Context.Database.GetItem("{2859D640-A69F-4272-9F94-A853C3C484B1}");
+    List<Sitecore.Data.Items.Item> TagsInner = new List<Sitecore.Data.Items.Item>();
+   
+
 }
 <main role="main" class="container blog-post-detail">
     <div class="row">
 
         @{ 
-            
+
             var item = Sitecore.Context.Database.GetItem(Model.BlogURL);
         }
 

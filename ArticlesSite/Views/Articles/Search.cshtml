@@ -1,48 +1,32 @@
-﻿@using Sitecore.Mvc.Presentation
+﻿ @using Sitecore.Mvc.Presentation
 @using Sitecore.Mvc.Extensions
 @using Sitecore.Data;
 
 @{
+
+    var item = Sitecore.Context.Database.GetItem("{319231EA-9BD8-4EE8-A456-2D99D661B554}");
     ViewBag.Title = "Search";
     //Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+@using (Html.BeginForm("searchPredicate","Search" ,FormMethod.Post))
+{
+    @Html.Sitecore().FormHandler("Search", "searchPredicate")
 
-<main role="main" class="container blog-posts">
-    <div class="main-search">
-        <div class="input-group">
-            <input type="text" class="form-control" name="name" id="searchInput" required>
-            <div class="input-group-append">
-                <button class="btn btn-dark" type="button" id="searchButton">
-                    Search
-                </button>
+    <main role="main" class="container blog-posts">
+        <div class="main-search">
+            <div class="input-group">
+                @Html.TextBox("searchInput", "", new { @class = "form-control", placeholder = @Html.Sitecore().Field("TextboxText", item), autocomplete = "off" })
+                <div class="input-group-append">
+
+                    <input type="submit" id="btnSearch" class="btn btn-dark" />
+
+                </div>
             </div>
         </div>
+    </main>
+    <div id="resultsItem">
+
     </div>
-</main>
-<div id="resultsItem">
-
-</div>
-
-
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
-<script>
-		$(document).ready(function () {
-			$("#searchButton").click(function (e) {
-				// debugger;
-				e.preventDefault();
-				$.ajax({
-					type: "GET",
-					datatype: "JSON", url: "@Url.Action("DoSearch", "ArticleBody")",
-					contentType: "application/json",
-					data: {
-						searchText: $("#searchInput").val()
-					},
-					error: function (result) {
-						alert('error');
-					}
-				});
-			});
-		});
-</script>
+}
 
